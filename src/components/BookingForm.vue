@@ -68,6 +68,13 @@ export default {
 .container > input {
   margin-left: 10px;
   margin-right: 10px;
+  background: #d8d8d8;
+}
+
+.container {
+  color: rgb(0, 0, 0);
+  font-size: 1.25em;
+  font-weight: bold;
 }
 
 button {

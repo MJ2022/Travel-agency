@@ -79,12 +79,14 @@ form {
 h1 {
   font-size: 2em;
   font-style: italic;
+  font-weight: bold;
 }
 
 p {
   margin: 10px;
   font-size: 2em;
   color: #000000;
+  font-weight: bold;
 }
 
 #list {
