@@ -13,7 +13,7 @@
         <li
           v-for="item of items"
           :key="item.dest_id"
-          @click="onSelectedCity(item.city_name, item.dest_type, item.dest_id)"
+          @click="onSelectedCity(item.city_name, item.dest_id, item.dest_type)"
         >
           {{ item.city_name }}-{{ item.dest_type }}-{{ item.dest_id }}
         </li>
@@ -56,9 +56,11 @@ export default {
         console.log(err);
       }
     },
-    onSelectedCity: function (cityName, dest_id, dest_type) {
+    onSelectedCity: function (cityName, destID, destType) {
       this.selectedCountry = cityName;
-      this.$emit("dest", dest_id, dest_type);
+
+      this.$emit("selectedCity", { destID, destType });
+
       this.items = [];
     },
   },

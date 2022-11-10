@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheSearchBar @dest="onSelectedCity" />
+    <TheSearchBar @selectedCity="onSelectedCity" />
     <BookingForm :destination="destination" />
     <Bookings />
     <ProductList />
@@ -22,15 +22,15 @@ export default {
     BookingForm,
   },
   methods: {
-    onSelectedCity(value) {
-      this.destination = value;
+    onSelectedCity({ destID, destType }) {
+      this.destination = { destID, destType };
     },
   },
   data() {
     return {
       destination: {
-        dest_id: "",
-        dest_type: "",
+        destID: "",
+        destType: "",
       },
     };
   },
