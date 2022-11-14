@@ -15,7 +15,7 @@
           :key="item.dest_id"
           @click="onSelectedCity(item.city_name, item.dest_id, item.dest_type)"
         >
-          {{ item.city_name }}-{{ item.dest_type }}-{{ item.dest_id }}
+          {{ item.city_name }}
         </li>
       </ul>
     </div>

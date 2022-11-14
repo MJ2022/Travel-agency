@@ -1,8 +1,11 @@
 <template>
   <div>
     <TheSearchBar @selectedCity="onSelectedCity" />
-    <BookingForm :destination="destination" />
-    <Bookings />
+    <BookingForm
+      :destination="destination"
+      @selectedReservation="onSelectedReservation"
+    />
+    <Bookings :reservation="reservation" />
     <ProductList />
   </div>
 </template>
@@ -25,12 +28,19 @@ export default {
     onSelectedCity({ destID, destType }) {
       this.destination = { destID, destType };
     },
+    onSelectedReservation({ baseFilters, result }) {
+      this.reservation = { baseFilters, result };
+    },
   },
   data() {
     return {
       destination: {
         destID: "",
         destType: "",
+      },
+      reservation: {
+        baseFilters: [],
+        result: [],
       },
     };
   },

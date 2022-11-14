@@ -9,9 +9,14 @@
       <input v-model="booking.in" type="date" id="in" />
       <label for="out">Check out</label>
       <input v-model="booking.out" type="date" id="out" />
-      <button type="submit" @click="clickedButton">GO</button>
+      <button
+        type="submit"
+        @click="clickedButton"
+        @keyup="onSelectedReservation(items.base_filters, items.result)"
+      >
+        GO
+      </button>
     </form>
-    <h5>{{ destination.dest_id }}-{{ destination.dest_type }}</h5>
   </div>
 </template>
 <script>
@@ -25,6 +30,7 @@ export default {
         in: "",
         out: "",
       },
+      items: [],
     };
   },
   props: {
@@ -38,9 +44,7 @@ export default {
   methods: {
     clickedButton: async function (event) {
       event.preventDefault();
-      console.log(this.booking);
-
-      /*  try {
+      try {
         const options = {
           method: "GET",
           headers: {
@@ -50,7 +54,7 @@ export default {
           },
         };
         const data = await fetch(
-          `https://apidojo-booking-v1.p.rapidapi.com/properties/list?offset=0&arrival_date=%3CREQUIRED%3E&departure_date=%3CREQUIRED%3E&guest_qty=1&dest_ids=-3712125&room_qty=1&search_type=city`,
+          `https://apidojo-booking-v1.p.rapidapi.com/properties/list?offset=0&arrival_date=${this.booking.in}&departure_date=${this.booking.out}&guest_qty=${this.booking.guest}&dest_ids=${this.destination.destID}&room_qty=${this.booking.room}&search_type=${this.destination.destType}`,
           options
         );
         const json = await data.json();
@@ -58,7 +62,10 @@ export default {
         console.log(this.items);
       } catch (err) {
         console.log(err);
-      } */
+      }
+    },
+    onSelectedReservation: function ({ baseFilters, result }) {
+      this.$emit("selectedReservation", { baseFilters, result });
     },
   },
 };
