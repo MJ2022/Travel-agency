@@ -9,13 +9,7 @@
       <input v-model="booking.in" type="date" id="in" />
       <label for="out">Check out</label>
       <input v-model="booking.out" type="date" id="out" />
-      <button
-        type="submit"
-        @click="clickedButton"
-        @keyup="onSelectedReservation(items.base_filters, items.result)"
-      >
-        GO
-      </button>
+      <button type="submit" @click="clickedButton">GO</button>
     </form>
   </div>
 </template>
@@ -30,7 +24,7 @@ export default {
         in: "",
         out: "",
       },
-      items: [],
+      reservations: {},
     };
   },
   props: {
@@ -58,14 +52,14 @@ export default {
           options
         );
         const json = await data.json();
-        this.items = json;
-        console.log(this.items);
+        this.reservations = json;
+        this.$emit("selectedReservation", {
+          base_filters: this.reservations.base_filters,
+          result: this.reservations.result,
+        });
       } catch (err) {
         console.log(err);
       }
-    },
-    onSelectedReservation: function ({ baseFilters, result }) {
-      this.$emit("selectedReservation", { baseFilters, result });
     },
   },
 };

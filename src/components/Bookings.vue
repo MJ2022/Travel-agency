@@ -1,30 +1,45 @@
 <template>
-  <div>
-    <h5>{{ reservation }}</h5>
-    <!-- <h1>Booking:{{ base.filters[0].layout.title }}</h1>
-    <h2>Currency code:{{ result[1].currencycode }}</h2>
+  <div class="container-fluid">
+    <h2>Booking:{{ reservation.base_filters[0].title }}</h2>
+    <h3>Currency code:{{ reservation.result[1].currencycode }}</h3>
     <table>
       <tr>
         <th>Hotel</th>
         <th>Price</th>
-        <th>Photo</th>
+        <th>Address</th>
+        <th>Peoples Reviews</th>
       </tr>
       <tr>
-        <td>{{ result[1].pricebreakdown.gross_price }}</td>
-        <td>{{ result[1].main_photo_url }}</td>
-        <td>{{ result[1].hotel_name }}</td>
+        <td>{{ reservation.result[1].hotel_name }}</td>
+        <td>{{ reservation.result[1].price_breakdown.gross_price }}</td>
+        <td>{{ reservation.result[1].address }}</td>
+        <td>{{ reservation.result[1].review_score_word }}</td>
       </tr>
       <tr>
-        <td>{{ result[2].hotel_name }}</td>
-        <td>{{ result[2].pricebreakdown.gross_price }}</td>
-        <td>{{ result[2].main_photo_url }}</td>
+        <td>{{ reservation.result[2].hotel_name }}</td>
+        <td>{{ reservation.result[2].price_breakdown.gross_price }}</td>
+        <td>{{ reservation.result[2].address }}</td>
+        <td>{{ reservation.result[2].review_score_word }}</td>
       </tr>
       <tr>
-        <td>{{ result[3].hotel_name }}</td>
-        <td>{{ result[3].pricebreakdown.gross_price }}</td>
-        <td>{{ result[3].main_photo_url }}</td>
+        <td>{{ reservation.result[3].hotel_name }}</td>
+        <td>{{ reservation.result[3].price_breakdown.gross_price }}</td>
+        <td>{{ reservation.result[3].address }}</td>
+        <td>{{ reservation.result[3].review_score_word }}</td>
       </tr>
-    </table> -->
+      <tr>
+        <td>{{ reservation.result[4].hotel_name }}</td>
+        <td>{{ reservation.result[4].price_breakdown.gross_price }}</td>
+        <td>{{ reservation.result[4].address }}</td>
+        <td>{{ reservation.result[4].review_score_word }}</td>
+      </tr>
+      <tr>
+        <td>{{ reservation.result[5].hotel_name }}</td>
+        <td>{{ reservation.result[5].price_breakdown.gross_price }}</td>
+        <td>{{ reservation.result[5].address }}</td>
+        <td>{{ reservation.result[5].review_score_word }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -46,10 +61,26 @@ export default {
 </script>
 
 <style scoped>
+.container-fluid {
+  margin: 20px;
+  padding: 30px;
+}
+
 table,
 td,
 th {
   border: 2px solid black;
-  border-collapse: collapse;
+  border-collapse: separate;
+  background-color: #e9e8e8;
+  font-size: 1.25em;
+  margin-left: 25%;
+}
+
+h2,
+h3 {
+  letter-spacing: 0.3em;
+  font-weight: bold;
+  color: #fffffff1;
+  font-size: 35px;
 }
 </style>
