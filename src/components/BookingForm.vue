@@ -82,15 +82,15 @@ export default {
 </script>
 
 <style scoped>
-.container > input {
-  margin-left: 10px;
+input {
+  margin-left: 15px;
   margin-right: 10px;
   background: #d8d8d8;
 }
 
-.container {
+form {
   color: rgb(0, 0, 0);
-  font-size: 1.25em;
+  font-size: 2.3em;
   font-weight: bold;
 }
 

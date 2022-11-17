@@ -1,14 +1,18 @@
 <template>
-  <div class="container-fluid">
-    <h2>Booking:{{ reservation.base_filters[0].title }}</h2>
-    <h3>Currency code:{{ reservation.result[1].currencycode }}</h3>
-    <table>
-      <tr>
+  <div class="container">
+    <h2 class="mt-5 text-center text-black">
+      Booking:{{ reservation.base_filters[0].title }}
+    </h2>
+    <h3 class="mt-2 mb-5 text-center text-black">
+      Currency:{{ reservation.result[1].currencycode }}
+    </h3>
+    <table class="container">
+      <thead>
         <th>Hotel</th>
         <th>Price</th>
         <th>Address</th>
         <th>Peoples Reviews</th>
-      </tr>
+      </thead>
       <tr>
         <td>{{ reservation.result[1].hotel_name }}</td>
         <td>{{ reservation.result[1].price_breakdown.gross_price }}</td>
@@ -61,26 +65,28 @@ export default {
 </script>
 
 <style scoped>
-.container-fluid {
-  margin: 20px;
-  padding: 30px;
-}
-
 table,
 td,
 th {
   border: 2px solid black;
-  border-collapse: separate;
+  border-collapse: collapse;
   background-color: #e9e8e8;
   font-size: 1.25em;
-  margin-left: 25%;
 }
 
 h2,
 h3 {
   letter-spacing: 0.3em;
   font-weight: bold;
-  color: #fffffff1;
+  color: #000000f1;
   font-size: 35px;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+  font-family: "book antiqua";
+  font-size: 2em;
+  padding: 20px;
 }
 </style>

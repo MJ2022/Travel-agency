@@ -100,8 +100,9 @@ export default {
 <style scoped>
 p {
   text-align: center;
-  font-style: italic;
-  font-size: medium;
+  font-style: "book antiqua";
+  font-size: 1.75em;
+  font-weight: bold;
   color: #000000;
   letter-spacing: 0.3em;
 }

@@ -68,25 +68,15 @@ export default {
 </script>
 
 <style scoped>
-form {
-  text-align: center;
-  color: #000000;
-  font-size: 1.25em;
-  font-style: oblique;
-  font-weight: 600;
-  margin-top: 25px;
-  padding: 10px;
-}
-
 h1 {
-  font-size: 2em;
+  font-size: 2.3em;
   font-style: italic;
   font-weight: bold;
 }
 
 p {
-  margin: 10px;
-  font-size: 2em;
+  margin-left: 50px;
+  font-size: 2.3em;
   color: #000000;
   font-weight: bold;
 }
@@ -101,17 +91,23 @@ p {
 #list li {
   border: 1px solid #c0c0c0;
   border-top: unset;
+  font-size: 30px;
 }
 
 #search {
   border: unset;
   background: #dbdbdb;
-  padding: 0.5em;
+  padding: 1em;
+  width: 200px;
 }
 
 .form-group {
   display: inline-block;
   margin-left: 30%;
   padding: 20px;
+}
+
+input {
+  font-size: 20px;
 }
 </style>
