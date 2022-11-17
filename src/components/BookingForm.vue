@@ -37,6 +37,22 @@ export default {
   },
   methods: {
     clickedButton: async function (event) {
+      if (!this.booking.room) {
+        alert("You must put a validate field");
+        e.preventDefault();
+      }
+      if (!this.booking.guest) {
+        alert("You must select minimum one guest");
+        e.preventDefault();
+      }
+      if (!this.booking.in) {
+        alert("You must selecte a date");
+        e.preventDefault();
+      }
+      if (!this.booking.out) {
+        alert("You must put a validate return field");
+        e.preventDefault();
+      }
       event.preventDefault();
       try {
         const options = {
