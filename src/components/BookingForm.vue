@@ -1,15 +1,43 @@
 <template>
   <div>
-    <form class="container">
+    <form
+      class="container"
+      @submit="onSubmit"
+      :class="this.errors ? 'errors' : false"
+    >
       <label for="room">Rooms</label>
-      <input v-model="booking.room" type="number" id="room" />
+      <input
+        v-model="booking.room"
+        type="number"
+        id="room"
+        required
+        @invalid="invalidateForm"
+      />
       <label for="guest">Guest</label>
-      <input v-model="booking.guest" type="number" id="guest" />
+      <input
+        v-model="booking.guest"
+        type="number"
+        id="guest"
+        required
+        @invalid="invalidateForm"
+      />
       <label for="in">Check in</label>
-      <input v-model="booking.in" type="date" id="in" />
+      <input
+        v-model="booking.in"
+        type="date"
+        id="in"
+        required
+        @invalid="invalidateForm"
+      />
       <label for="out">Check out</label>
-      <input v-model="booking.out" type="date" id="out" />
-      <button type="submit" @click="clickedButton">GO</button>
+      <input
+        v-model="booking.out"
+        type="date"
+        id="out"
+        required
+        @invalid="invalidateForm"
+      />
+      <button type="submit">GO</button>
     </form>
   </div>
 </template>
@@ -18,13 +46,13 @@ export default {
   name: "BookingForm",
   data() {
     return {
+      errors: false,
       booking: {
         room: "",
         guest: "",
         in: "",
         out: "",
       },
-      reservations: {},
     };
   },
   props: {
@@ -36,23 +64,10 @@ export default {
     },
   },
   methods: {
-    clickedButton: async function (event) {
-      if (!this.booking.room) {
-        alert("You must put a validate field");
-        e.preventDefault();
-      }
-      if (!this.booking.guest) {
-        alert("You must select minimum one guest");
-        e.preventDefault();
-      }
-      if (!this.booking.in) {
-        alert("You must selecte a date");
-        e.preventDefault();
-      }
-      if (!this.booking.out) {
-        alert("You must put a validate return field");
-        e.preventDefault();
-      }
+    invalidateForm: function () {
+      this.errors = true;
+    },
+    onSubmit: async function (event) {
       event.preventDefault();
       try {
         const options = {
@@ -68,10 +83,10 @@ export default {
           options
         );
         const json = await data.json();
-        this.reservations = json;
+        const reservations = json;
         this.$emit("selectedReservation", {
-          base_filters: this.reservations.base_filters,
-          result: this.reservations.result,
+          baseFilters: reservations.base_filters,
+          results: reservations.result,
         });
       } catch (err) {
         console.log(err);

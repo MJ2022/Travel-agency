@@ -28,8 +28,8 @@ export default {
     onSelectedCity({ destID, destType }) {
       this.destination = { destID, destType };
     },
-    onSelectedReservation({ base_filters, result }) {
-      this.reservation = { base_filters, result };
+    onSelectedReservation({ baseFilters, results }) {
+      this.reservation = { baseFilters, results };
     },
   },
   data() {
@@ -39,8 +39,8 @@ export default {
         destType: "",
       },
       reservation: {
-        base_filters: [],
-        result: [],
+        baseFilters: [],
+        results: [],
       },
     };
   },
