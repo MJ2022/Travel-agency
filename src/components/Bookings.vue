@@ -14,37 +14,13 @@
         <th>Peoples Reviews</th>
       </thead>
       <tbody>
-        <tr v-for="value in reservation" :key="index">
-          <td>{{ value }}</td>
-          <!--   <td>{{ value.results[index].price_breakdown.gross_price }}</td>
-          <td>{{ value.results[index].address }}</td>
-          <td>{{ value.results[index].review_score_word }}</td> -->
+        <tr v-for="reserve in reservation.results" :key="index">
+          <td>{{ reserve.hotel_name }}</td>
+          <td>{{ reserve.price_breakdown.gross_price }}</td>
+          <td>{{ reserve.address }}</td>
+          <td>{{ reserve.review_score_word }}</td>
         </tr>
       </tbody>
-      <!-- <tr>
-        <td>{{ reservation.results[2].hotel_name }}</td>
-        <td>{{ reservation.results[2].price_breakdown.gross_price }}</td>
-        <td>{{ reservation.results[2].address }}</td>
-        <td>{{ reservation.results[2].review_score_word }}</td>
-      </tr>
-      <tr>
-        <td>{{ reservation.results[3].hotel_name }}</td>
-        <td>{{ reservation.results[3].price_breakdown.gross_price }}</td>
-        <td>{{ reservation.results[3].address }}</td>
-        <td>{{ reservation.results[3].review_score_word }}</td>
-      </tr>
-      <tr>
-        <td>{{ reservation.results[4].hotel_name }}</td>
-        <td>{{ reservation.results[4].price_breakdown.gross_price }}</td>
-        <td>{{ reservation.results[4].address }}</td>
-        <td>{{ reservation.results[4].review_score_word }}</td>
-      </tr>
-      <tr>
-        <td>{{ reservation.results[5].hotel_name }}</td>
-        <td>{{ reservation.results[5].price_breakdown.gross_price }}</td>
-        <td>{{ reservation.results[5].address }}</td>
-        <td>{{ reservation.results[5].review_score_word }}</td>
-      </tr>  -->
     </table>
   </div>
 </template>
@@ -53,9 +29,7 @@
 export default {
   name: "Bookings",
   data() {
-    return {
-      index: [1, 2, 3, 4, 5],
-    };
+    return {};
   },
   props: {
     reservation: {
